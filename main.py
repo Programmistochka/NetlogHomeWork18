@@ -31,10 +31,13 @@ if __name__ == "__main__":
         print(link)
         company = vacancy.find(class_='vacancy-serp-item__meta-info-company').text
         print(company)
+        city = vacancy.find(class_='vacancy-serp-item__info').contents[1].text
+        print(city)
         zp = vacancy.find(class_='vacancy-serp-item-body__main-info').find('span', class_='bloko-header-section-3')
         if zp is None:
             zp = "Зарплата не указана"
         else:
-            zp = (' ').join(zp.contents)
+            zp = ('').join(zp.contents)
         print(zp)
+    
 
