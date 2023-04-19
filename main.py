@@ -10,11 +10,12 @@ import pprint
 HOST = "https://spb.hh.ru/search/vacancy?text=python&area=1&area=2"
 
 def get_headers():
+    """Процедура получения заголовков для запросов к hh.ru"""
     return Headers(browser = "firefox", os = "win").generate()
 
 def get_text(url):
+    """Получение текста по url-адресу страницы"""
     params={'text': 'python', 'area' : 2, 'per_page':20}
-    #return requests.get('https://spb.hh.ru/search/vacancy', headers = get_headers(), params=params).text
     return requests.get(url, headers = get_headers(), params = params).text
 
 if __name__ == "__main__":
